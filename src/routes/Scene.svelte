@@ -18,6 +18,8 @@
   let data = [];
   let datafiltered = [];
   let years = [];
+
+  export let selectedYear;
   async function load() {
     const data_file =
       "https://raw.githubusercontent.com/stefanpullen/TutorialData/main/heathrow.csv";
@@ -56,6 +58,9 @@
 
 {#each data as d}
   <Bar
+    {selectedYear}
+    rain={d.rain}
+    year={d.year}
     x={xScale(d.month)}
     y={yScale(d.rain)}
     z={zScale(d.year)}
